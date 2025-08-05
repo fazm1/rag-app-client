@@ -20,8 +20,6 @@ This is the frontend client for the **RAG (Retrieval-Augmented Generation) AI PD
 - **React Flow**
 - **Axios**
 - **TypeScript**
-- **Mantine UI** (optional, if used)
-- **CSS Modules** or your chosen styling method
 
 ---
 
