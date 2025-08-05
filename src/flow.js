@@ -68,6 +68,7 @@ export function useFlow() {
   };
 
   const runFlow = async () => {
+    alert('Please wait');
     // Find nodes
     const ragNodes = nodes.filter(n => n.type === 'ragNode');
     const inputNodes = nodes.filter(n => n.type === 'inputNode');
@@ -105,6 +106,7 @@ export function useFlow() {
     fd.append('query', flowState.inputText);
     fd.append('file', flowState.pdfFile);
     try {
+      
       const res = await axios.post('https://rag-app-server-production.up.railway.app/api/query', fd);
       const answer = res.data.answer;
       setFlowState((s) => ({ ...s, outputText: answer }));
@@ -113,7 +115,7 @@ export function useFlow() {
           n.type === 'outputNode' ? { ...n, data: { ...n.data, output: answer } } : n
         )
       );
-      alert('Please wait');
+
     } catch {
       alert('Error running flow');
     }
