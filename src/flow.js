@@ -105,7 +105,7 @@ export function useFlow() {
     fd.append('query', flowState.inputText);
     fd.append('file', flowState.pdfFile);
     try {
-      const res = await axios.post('http://localhost:3000/api/query', fd);
+      const res = await axios.post('https://rag-app-server-production.up.railway.app/api/query', fd);
       const answer = res.data.answer;
       setFlowState((s) => ({ ...s, outputText: answer }));
       setNodes((nds) =>
@@ -113,6 +113,7 @@ export function useFlow() {
           n.type === 'outputNode' ? { ...n, data: { ...n.data, output: answer } } : n
         )
       );
+      alert('Please wait');
     } catch {
       alert('Error running flow');
     }
