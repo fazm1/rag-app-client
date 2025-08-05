@@ -1,0 +1,190 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(90deg, #f3f4f6 0%, #e0e7ff 100%);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  transition: all 0.2s;
+}
+
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: rgba(36, 41, 46, 0.85);
+  color: #f3f4f6;
+  border-right: 1px solid #6366f1;
+  padding: 32px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 2px 0 24px rgba(99, 102, 241, 0.10);
+  position: relative;
+  transition: width 0.2s, min-width 0.2s, padding 0.2s, background 0.3s;
+  backdrop-filter: blur(8px);
+}
+
+.sidebar.collapsed {
+  width: 48px;
+  min-width: 48px;
+  padding: 16px 8px;
+  align-items: center;
+  gap: 0;
+  background: rgba(36, 41, 46, 0.95);
+}
+
+.sideHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.sideHeader h4 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.sidebar h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.sidebar button:not(.sidebar-toggle) {
+  width: 100%;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.12);
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.sidebar button:not(.sidebar-toggle):hover,
+.sidebar button:not(.sidebar-toggle):focus {
+  background: linear-gradient(90deg, #818cf8 0%, #6366f1 100%);
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.sidebar-toggle {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  align-self: flex-end;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-toggle:hover {
+  background: linear-gradient(135deg, #818cf8 60%, #6366f1 100%);
+}
+
+.sidebar.collapsed .sidebar-toggle {
+  margin-bottom: 0;
+  align-self: center;
+}
+
+.sidebar hr {
+  border: none;
+  border-top: 1px solid #6366f1;
+  margin: 16px 0;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.sidebar h4,
+.sidebar button:not(.sidebar-toggle),
+.sidebar hr {
+  transition: opacity 0.2s;
+}
+
+.sidebar.collapsed h4,
+.sidebar.collapsed button:not(.sidebar-toggle),
+.sidebar.collapsed hr {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.canvas-area {
+  flex-grow: 1;
+  background: #f8fafc;
+  position: relative;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.07);
+  border-radius: 0 16px 16px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: margin-left 0.2s;
+}
+
+.app-container.sidebar-collapsed .canvas-area {
+  /* Optional: expand canvas when sidebar is collapsed */
+}
+
+.sidebar button.draggable-btn {
+  width: 60%;
+  padding: 12px 0 12px 36px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: grab;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.12);
+  outline: none;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar button.draggable-btn:active {
+  cursor: grabbing;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.18);
+  transform: scale(0.98);
+}
+
+.sidebar button.draggable-btn::before {
+  content: "⠿";
+  font-size: 1.2rem;
+  color: #c7d2fe;
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
