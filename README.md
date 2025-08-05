@@ -1,12 +1,72 @@
-# React + Vite
+# RAG App Client – AI PDF Assistant (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend client for the **RAG (Retrieval-Augmented Generation) AI PDF Assistant**, built using **React** and **React Flow**. The application allows users to upload PDF documents and interact with them via a dynamic workflow using AI and embeddings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## Expanding the ESLint configuration
+-  PDF Upload & Parsing
+-  AI-based Question Answering (via backend RAG pipeline)
+-  Visual Workflow Interface (powered by React Flow)
+-  Modular, Component-Based Structure
+-  API Key Support for embedding model
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+##  Tech Stack
+
+- **React** (Vite)
+- **React Flow**
+- **Axios**
+- **TypeScript**
+- **Mantine UI** (optional, if used)
+- **CSS Modules** or your chosen styling method
+
+---
+
+##  Installation & Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/rag-app-client.git
+
+# 2. Navigate into the folder
+cd rag-app-client
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
+```
+
+> Make sure the backend RAG service is running at the URL specified in flow.js.
+
+---
+
+
+##  Build for Production
+
+```bash
+npm run build
+```
+
+To preview production build:
+
+```bash
+npm run preview
+```
+
+
+##  About the Project
+
+This app is part of a full-stack **RAG AI Assistant** system. It connects with a Node.js + TypeScript backend that handles:
+
+- PDF chunking
+- Embedding (via API or local model)
+- Vector store storage (e.g., ChromaDB)
+- Retrieval + prompt generation
+- LLM response generation (via OpenAI, Cohere, etc.)
+
+---
