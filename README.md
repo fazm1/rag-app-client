@@ -29,7 +29,6 @@ This is the frontend client for the **RAG (Retrieval-Augmented Generation) AI PD
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/rag-app-client.git
 
 # 2. Navigate into the folder
 cd rag-app-client
